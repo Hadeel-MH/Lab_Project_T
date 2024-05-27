@@ -1,6 +1,6 @@
 DSC 200 Lab Project -Term 2232
 ================
-2024-05-20
+2024-05-27
 
 **Student Name:<insert your name here>**Hadeel Muhammad
 
@@ -352,6 +352,23 @@ top_10_names
 \`a. What does the above code chunk do?
 
 \`b. Plot the counts of the pet names (animal_name) in top_10_names
+
+``` r
+# Create a subset of data for the top 10 most common pet names
+top_10_names <- c("Lucy", "Charlie", "Luna", "Bella", "Max", "Cooper", "Daisy", "Buddy",
+"Molly", "Stella")
+top_10_subset <- filter(seattlepets, animal_name %in% top_10_names)
+# Plot the counts of the pet names segmented by species
+pet_names_plot <- ggplot(top_10_subset, aes(x = animal_name, fill = species)) +
+                  geom_bar(position = "dodge") +
+                  labs(title = "Counts of Top 10 Pet Names Segmented by Species", x =
+"Pet Name", y = "Count") +
+                  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# Display the plot
+print(pet_names_plot)
+```
+
+![](Lab_project_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 \`10. (2 points)
 
